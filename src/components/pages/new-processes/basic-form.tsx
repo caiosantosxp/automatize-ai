@@ -5,7 +5,7 @@ import { Label } from '@/components/ui/label'
 interface PositionProps {
   position?: number
   handlePosition: (position: number) => void // Certifique-se de que o tipo é correto
-}
+} // funcionarrr
 
 export function BasicForm({ handlePosition }: PositionProps) {
   function handlePositionChange(num: number) {
