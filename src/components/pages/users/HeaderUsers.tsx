@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
-export function Header() {
+export function HeaderUser() {
   const [location, setLocation] = useState('')
 
   useEffect(() => {
@@ -29,25 +29,6 @@ export function Header() {
               className="rounded-none border-b-4 border-transparent hover:border-b-border data-[current=true]:border-ring"
             >
               Todas LIs
-            </Button>
-          </Link>
-          <Link href={'/processes/new'}>
-            <Button
-              data-current={location === '/processes/new'}
-              variant={'hidden'}
-              className="rounded-none border-b-4 border-transparent hover:border-b-border data-[current=true]:border-ring"
-            >
-              Nova LI - IA
-            </Button>
-          </Link>
-
-          <Link href={'/processes/new'}>
-            <Button
-              data-current={location === '/processes/new'}
-              variant={'hidden'}
-              className="rounded-none border-b-4 border-transparent hover:border-b-border data-[current=true]:border-ring"
-            >
-              Nova LI - Manual
             </Button>
           </Link>
         </div>

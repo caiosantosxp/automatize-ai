@@ -1,8 +1,9 @@
 import { Input } from '@/components/ui/input'
+import { Separator } from '@/components/ui/separator'
 import { List, Plus } from 'lucide-react'
 import Link from 'next/link'
 
-export function SideBarLis() {
+export function SideBarUser() {
   return (
     <>
       <div className="h-screen w-full p-4">
@@ -16,13 +17,24 @@ export function SideBarLis() {
           <ul>
             <li className="mb-2">
               <Link
-                href="/processes"
-                className="flex items-center gap-2 font-bold text-ring"
+                href="/users"
+                className="flex items-center gap-2 font-bold text-ring hover:underline"
               >
                 <List size={16} />
-                Todas LIs
+                Todos os Usuários
               </Link>
             </li>
+            <li className="mb-2">
+              <Link
+                href="/users/new"
+                className="flex items-center gap-2 font-bold text-ring hover:underline"
+              >
+                <Plus size={16} />
+                Novo Usuários
+              </Link>
+            </li>
+
+            <Separator orientation="horizontal" className="my-2" />
             {/* <li className="mb-2">
               <Link
                 href="/processes/new"
@@ -32,20 +44,6 @@ export function SideBarLis() {
                 Novo processos
               </Link>
             </li> */}
-
-            {/* {data.map((item, index) => (
-              <li key={item.id + index} className="mb-1">
-                <Link
-                  href={`/processes/${item.referencia}`}
-                  className="flex items-center gap-2"
-                >
-                  <span className="flex h-5 w-5 items-center justify-center rounded bg-emerald-500 p-1 text-xs uppercase text-muted">
-                    {item.client.slice(0, 2)}
-                  </span>
-                  {item.referencia}
-                </Link>
-              </li>
-            ))} */}
           </ul>
         </div>
       </div>

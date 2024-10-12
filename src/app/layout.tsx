@@ -6,7 +6,7 @@ import { ThemeProvider } from '@/components/theme.provider/ThemeProvider'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
+  variable: '--font-geist-',
   weight: '100 900',
 })
 
@@ -32,18 +32,17 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex min-h-screen flex-row">
+          <div className="flex min-h-screen">
             {/* Menu Lateral */}
-            <aside className="bg-gradient-to-t from-blue-700 to-blue-500">
+            <aside className="w-64 bg-gradient-to-t from-emerald-800 to-emerald-600">
               <Sidebar />
             </aside>
 
             {/* Layout Principal */}
-            <div className="flex w-[1680px] flex-col">
+            <div className="flex w-full flex-col">
               {/* Conteúdo Principal */}
-              <main className="h-[calc(100vh-5rem)] flex-grow overflow-y-auto bg-background">
-                {children}
-              </main>
+
+              {children}
             </div>
           </div>
         </ThemeProvider>

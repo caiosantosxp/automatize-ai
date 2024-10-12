@@ -24,7 +24,7 @@ import { ToggleButton } from '../theme.provider/ToggleButton'
 export function Sidebar() {
   return (
     <>
-      <div className="flex h-full w-60 flex-col justify-between p-3 font-[family-name:var(--font-geist-sans)] text-gray-200">
+      <div className="flex h-full w-full flex-col justify-between p-3 font-[family-name:var(--font-geist-sans)] text-gray-200">
         <div>
           <div className="mb-4 px-1 py-2">
             <Bot size={32} />
@@ -55,16 +55,18 @@ export function Sidebar() {
               <Link href="/lis">
                 <button className="flex w-full items-center gap-4 rounded px-4 py-2 text-sm hover:bg-[rgba(0,0,0,0.2)]">
                   <ShieldCheck size={18} />
-                  LIs
+                  LI&apos;s
                 </button>
               </Link>
             </li>
 
             <li className="w-full">
-              <button className="flex w-full items-center gap-4 rounded px-4 py-2 text-sm hover:bg-[rgba(0,0,0,0.2)]">
-                <LayoutTemplate size={18} />
-                Processes 2
-              </button>
+              <Link href="/dis">
+                <button className="flex w-full items-center gap-4 rounded px-4 py-2 text-sm hover:bg-[rgba(0,0,0,0.2)]">
+                  <LayoutTemplate size={18} />
+                  DI&apos;s
+                </button>
+              </Link>
             </li>
 
             <li className="w-full">
@@ -96,17 +98,21 @@ export function Sidebar() {
             </li>
 
             <li className="w-full">
-              <button className="flex w-full items-center gap-4 rounded px-4 py-2 text-sm hover:bg-[rgba(0,0,0,0.2)]">
-                <Users size={18} />
-                Clientes
-              </button>
+              <Link href="/client">
+                <button className="flex w-full items-center gap-4 rounded px-4 py-2 text-sm hover:bg-[rgba(0,0,0,0.2)]">
+                  <Users size={18} />
+                  Clientes
+                </button>
+              </Link>
             </li>
 
             <li className="w-full">
-              <button className="flex w-full items-center gap-4 rounded px-4 py-2 text-sm hover:bg-[rgba(0,0,0,0.2)]">
-                <UserPlus size={18} />
-                Usuários
-              </button>
+              <Link href="/users">
+                <button className="flex w-full items-center gap-4 rounded px-4 py-2 text-sm hover:bg-[rgba(0,0,0,0.2)]">
+                  <UserPlus size={18} />
+                  Usuários
+                </button>
+              </Link>
             </li>
 
             <div className="mx-auto my-4 w-[85%] border-t-[0.01px] border-muted" />

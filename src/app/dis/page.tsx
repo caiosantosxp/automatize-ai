@@ -1,6 +1,6 @@
-import { HeaderLis } from '@/components/pages/lis/HeaderLis'
-import { LiList } from '@/components/pages/lis/Lis'
-import { SideBarLis } from '@/components/pages/lis/SidebarLis'
+import { DiList } from '@/components/pages/dis/Dis'
+import { HeaderDis } from '@/components/pages/dis/HeaderDis'
+import { SideBarDis } from '@/components/pages/dis/SidebarDis'
 
 interface Responsavel {
   id: string
@@ -171,16 +171,16 @@ const data: liProps[] = [
   },
 ]
 
-export default function Li() {
+export default function Di() {
   return (
     <div className="flex">
       <div className="h-[calc(100vh)] min-w-60 bg-muted">
-        <SideBarLis data={data} />
+        <SideBarDis />
       </div>
       <div className="h-[calc(100vh-4rem)] w-full overflow-auto bg-background text-foreground">
-        <HeaderLis />
+        <HeaderDis />
 
-        <LiList data={data} />
+        <DiList data={data} />
       </div>
     </div>
   )

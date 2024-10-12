@@ -1,5 +1,5 @@
-import { HeaderUser } from '@/components/pages/users/HeaderUsers'
-import { SideBarUser } from '@/components/pages/users/SidebarUsers'
+import { HeaderClient } from '@/components/pages/cliente/HeaderClient'
+import { SideBarClient } from '@/components/pages/cliente/SidebarClient'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -18,10 +18,10 @@ export default function NewUser() {
   return (
     <div className="flex">
       <div className="h-[calc(100vh)] min-w-60 bg-muted">
-        <SideBarUser />
+        <SideBarClient />
       </div>
       <div className="h-[calc(100vh-4rem)] w-full overflow-auto bg-background">
-        <HeaderUser />
+        <HeaderClient />
         <div className="m-auto flex w-[70%] flex-col flex-wrap gap-4 p-4 font-[family-name:var(--font-geist-sans)]">
           <h1>Novo Usuario</h1>
           <form action="">

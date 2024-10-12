@@ -27,7 +27,7 @@ export function Header({ position, handlePosition }: PositionProps) {
             <ChevronLeftCircle className="text-primary" />
           </Button>
           <h1 className="text-background-foreground text-2xl leading-relaxed">
-            Todos os Processos
+            Nova LI
           </h1>
         </div>
         <div>
@@ -37,7 +37,7 @@ export function Header({ position, handlePosition }: PositionProps) {
             className="rounded-none border-b-4 border-transparent hover:border-b-border data-[current=true]:border-primary"
             onClick={() => handlePositionSet(0)}
           >
-            Dados Básicos
+            Básicas
           </Button>
 
           <Button
@@ -46,7 +46,7 @@ export function Header({ position, handlePosition }: PositionProps) {
             className="rounded-none border-b-4 border-transparent hover:border-b-border data-[current=true]:border-primary"
             onClick={() => handlePositionSet(1)}
           >
-            BL
+            Fornecedor
           </Button>
 
           <Button
@@ -55,7 +55,7 @@ export function Header({ position, handlePosition }: PositionProps) {
             className="rounded-none border-b-4 border-transparent hover:border-b-border data-[current=true]:border-primary"
             onClick={() => handlePositionSet(2)}
           >
-            Invoice
+            Mercadoria
           </Button>
 
           <Button
@@ -64,7 +64,7 @@ export function Header({ position, handlePosition }: PositionProps) {
             className="rounded-none border-b-4 border-transparent hover:border-b-border data-[current=true]:border-primary"
             onClick={() => handlePositionSet(3)}
           >
-            Pack List
+            Negociação
           </Button>
         </div>
       </header>

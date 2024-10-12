@@ -40,51 +40,22 @@ interface Responsavel {
   avatar: string
 }
 
-export type Payment = {
+export type liProps = {
   id: string
-  situation: 'started' | 'finalized'
-  status: 'pending ce' | 'pending ship' | 'pending li' | 'pending transport'
+  number_li: string
+  status: 'pending' | 'pending payment' | 'to analyze' | 'granted'
   referencia: string
   client: string
-  type: 'importation' | 'exportation'
-  importador: string
-  invoice_number?: string
-  fornecedor?: string
-  li?: string // vai vim como uma lista
-  obs_li?: string
-  ce_master?: number
-  ce_house?: number
-  hbl?: string
-  mbl?: string
-  container?: string // vai vim como lista
-  armador?: string
-  agente?: string
-  data_final_free_time?: string
-  navio?: string
-  chegada_terminal?: string
-  descargar?: boolean
-  presença?: boolean
-  mapa?: string
-  di?: string
-  due?: string
-  data_di?: string
-  canal?: string
-  desembaraco?: string
-  fluxo?: string
-  originais?: string
-  demanda_cliente?: string
-  operacional?: string
-  data_numerario?: string
-  tempo_free_time?: number
-  economia?: string
+  ncm: string
+  data_registro: string
   responsavel?: Responsavel[] // vai vim em lista
 }
 
 type Props = {
-  data: Payment[] // Propriedade esperada
+  data: liProps[] // Propriedade esperada
 }
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<liProps>[] = [
   {
     id: 'select',
     header: ({ table }) => (
@@ -108,13 +79,13 @@ export const columns: ColumnDef<Payment>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: 'referencia',
-    header: 'Referencia',
+    accessorKey: 'number_li',
+    header: 'Numero LI',
     cell: ({ row }) => (
       <>
         <Link href={'/'}>
           <div className="capitalize hover:underline">
-            {row.getValue('referencia')}
+            {row.getValue('number_li')}
           </div>
         </Link>
       </>
@@ -122,38 +93,32 @@ export const columns: ColumnDef<Payment>[] = [
   },
 
   {
+    accessorKey: 'referencia',
+    header: 'Referencia',
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue('referencia')}</div>
+    ),
+  },
+
+  {
     accessorKey: 'client',
-    header: 'Cliente',
+    header: 'Client',
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue('client')}</div>
     ),
   },
 
   {
-    accessorKey: 'type',
-    header: 'Tipo',
-    cell: ({ row }) => <div className="capitalize">{row.getValue('type')}</div>,
+    accessorKey: 'ncm',
+    header: 'NCM',
+    cell: ({ row }) => <div className="capitalize">{row.getValue('ncm')}</div>,
   },
 
   {
-    accessorKey: 'mapa',
-    header: 'MAPA',
-    cell: ({ row }) => <div className="capitalize">{row.getValue('mapa')}</div>,
-  },
-
-  {
-    accessorKey: 'chegada_terminal',
-    header: 'Data de Chegada',
+    accessorKey: 'data_registro',
+    header: 'Data de registro',
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue('chegada_terminal')}</div>
-    ),
-  },
-
-  {
-    accessorKey: 'canal',
-    header: 'Canal',
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue('canal')}</div>
+      <div className="capitalize">{row.getValue('data_registro')}</div>
     ),
   },
 
@@ -182,7 +147,7 @@ export const columns: ColumnDef<Payment>[] = [
   },
 ]
 
-export function ProcessesList({ data }: Props) {
+export function DiList({ data }: Props) {
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     [],
@@ -251,20 +216,9 @@ export function ProcessesList({ data }: Props) {
         </DropdownMenu>
       </div>
 
-      <div className="mb-4 flex min-h-24 w-full flex-col items-center rounded-md border bg-destructive p-2 font-[family-name:var(--font-geist-mono)] text-destructive-foreground">
-        <h1 className="text-sm uppercase">AVISOS IMPORTANTES</h1>
-
-        <p>Processo de Referencia #BR-KIOS254-6 atracou hoje! verifique</p>
-        <p>
-          Processo de Referencia #BR-PJDKN54-2 está dois dias atrasados!
-          verifique
-        </p>
-        <p>Processo de Referencia #BR-KIOS254-7 ja pode montar DI!</p>
-      </div>
-
       <div>
         <Table>
-          <TableHeader>
+          <TableHeader className="text-foreground">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
@@ -285,19 +239,21 @@ export function ProcessesList({ data }: Props) {
           <TableBody className="bg-muted">
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && 'selected'}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext(),
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
+                <>
+                  <TableRow
+                    key={row.id}
+                    data-state={row.getIsSelected() && 'selected'}
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext(),
+                        )}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                </>
               ))
             ) : (
               <TableRow>
@@ -313,7 +269,7 @@ export function ProcessesList({ data }: Props) {
         </Table>
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
-        <div className="flex-1 text-sm text-muted-foreground">
+        <div className="flex-1 text-sm text-foreground">
           {table.getFilteredSelectedRowModel().rows.length} of{' '}
           {table.getFilteredRowModel().rows.length} row(s) selected.
         </div>

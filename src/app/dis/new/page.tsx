@@ -1,12 +1,12 @@
 'use client'
 
-import { BlForm } from '@/components/pages/new-processes/bl-form'
-import { InvoiceForm } from '@/components/pages/new-processes/invoice-form'
-import { PackListForm } from '@/components/pages/new-processes/packlist-form'
+import { BasicForm } from '@/components/pages/new-lis/basic-form'
+import { Supplier } from '@/components/pages/new-lis/Supplier'
+import { Header } from '@/components/pages/new-lis/Header'
+import { Merchandise } from '@/components/pages/new-lis/Merchandise'
+import { Negotiation } from '@/components/pages/new-lis/Negotiation'
 
-import { BasicForm } from '@/components/pages/new-processes/basic-form'
 import { useState } from 'react'
-import { Header } from '@/components/pages/new-processes/Header'
 
 export default function NewProcesses() {
   const [position, setPosition] = useState(0)
@@ -23,23 +23,21 @@ export default function NewProcesses() {
       break
 
     case 1:
-      formComponent = <BlForm handlePosition={handlePosition} />
+      formComponent = <Supplier handlePosition={handlePosition} />
       break
 
     case 2:
-      formComponent = <InvoiceForm handlePosition={handlePosition} />
+      formComponent = <Merchandise handlePosition={handlePosition} />
       break
 
     case 3:
-      formComponent = <PackListForm handlePosition={handlePosition} />
+      formComponent = <Negotiation handlePosition={handlePosition} />
       break
 
     default:
       formComponent = null // ou outro componente padrão
       break
   }
-
-  // Função para capturar o arquivo
 
   return (
     <>
