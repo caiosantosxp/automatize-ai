@@ -56,7 +56,7 @@ export function InvoiceForm({ handlePosition }: PositionProps) {
 
   async function handleSubmit() {
     try {
-      const response = await fetch('http://localhost:5000/extract_kv')
+      const response = await fetch('http://localhost:5000/extract_invoice')
       const result = await response.json()
       setData1(result) // Atualiza o estado com os dados retornados
     } catch (error) {
@@ -160,7 +160,7 @@ export function InvoiceForm({ handlePosition }: PositionProps) {
                 htmlFor="bl-number"
                 className="font-[family-name:var(--font-geist-sans)]"
               >
-                BL number
+                Invoice number
               </Label>
               <Input
                 type="text"

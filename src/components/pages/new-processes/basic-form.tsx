@@ -11,6 +11,7 @@ export function BasicForm({ handlePosition }: PositionProps) {
   function handlePositionChange(num: number) {
     handlePosition(num)
   }
+
   return (
     <>
       <form>

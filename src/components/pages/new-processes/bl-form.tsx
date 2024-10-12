@@ -56,7 +56,7 @@ export function BlForm({ handlePosition }: PositionProps) {
 
   async function handleSubmit() {
     try {
-      const response = await fetch('http://localhost:5000/extract_kv')
+      const response = await fetch('http://localhost:5000/extract_bl')
       const result = await response.json()
       setData1(result) // Atualiza o estado com os dados retornados
     } catch (error) {
@@ -165,7 +165,7 @@ export function BlForm({ handlePosition }: PositionProps) {
               <Input
                 type="text"
                 id="bl-number"
-                value={data1?.bill_of_lading_no || ''}
+                value={data1?.bl_no || ''}
                 onChange={(e) =>
                   setData1({ ...data1, bill_of_lading_no: e.target.value })
                 }
@@ -200,9 +200,9 @@ export function BlForm({ handlePosition }: PositionProps) {
               <Input
                 id="port-loading"
                 type="text"
-                value={data1?.port_of_loading || ''}
+                value={data1?.place_of_receiptdate || ''}
                 onChange={(e) =>
-                  setData1({ ...data1, port_of_loading: e.target.value })
+                  setData1({ ...data1, place_of_receiptdate: e.target.value })
                 }
                 className="font-[family-name:var(--font-geist-mono)]"
               />
@@ -217,9 +217,9 @@ export function BlForm({ handlePosition }: PositionProps) {
               <Input
                 id="date-loading"
                 type="text"
-                value={data1?.shipped_on_board || ''}
+                value={data1?.port_of_loading || ''}
                 onChange={(e) =>
-                  setData1({ ...data1, shipped_on_board: e.target.value })
+                  setData1({ ...data1, port_of_loading: e.target.value })
                 }
                 className="font-[family-name:var(--font-geist-mono)]"
               />
@@ -237,9 +237,9 @@ export function BlForm({ handlePosition }: PositionProps) {
               <Input
                 id="port-receipt"
                 type="text"
-                value={data1?.place_of_receipt || ''}
+                value={data1?.port_of_discharge || ''}
                 onChange={(e) =>
-                  setData1({ ...data1, place_of_receipt: e.target.value })
+                  setData1({ ...data1, port_of_discharge: e.target.value })
                 }
                 className="font-[family-name:var(--font-geist-mono)]"
               />
@@ -254,9 +254,9 @@ export function BlForm({ handlePosition }: PositionProps) {
               <Input
                 id="city-receipt"
                 type="text"
-                value={data1?.freight_payable_at || ''}
+                value={data1?.payable_at || ''}
                 onChange={(e) =>
-                  setData1({ ...data1, freight_payable_at: e.target.value })
+                  setData1({ ...data1, payable_at: e.target.value })
                 }
                 className="font-[family-name:var(--font-geist-mono)]"
               />
@@ -292,11 +292,11 @@ export function BlForm({ handlePosition }: PositionProps) {
               <Input
                 id="number_and_kind_of_packages"
                 type="text"
-                value={data1?.number_and_kind_of_packages || ''}
+                value={data1?.volume || ''}
                 onChange={(e) =>
                   setData1({
                     ...data1,
-                    number_and_kind_of_packages: e.target.value,
+                    volume: e.target.value,
                   })
                 }
                 className="font-[family-name:var(--font-geist-mono)]"
@@ -312,10 +312,8 @@ export function BlForm({ handlePosition }: PositionProps) {
               <Input
                 id="gross_weight"
                 type="text"
-                value={data1?.gross_weight || ''}
-                onChange={(e) =>
-                  setData1({ ...data1, freight_payable_at: e.target.value })
-                }
+                value={data1?.weight || ''}
+                onChange={(e) => setData1({ ...data1, weight: e.target.value })}
                 className="font-[family-name:var(--font-geist-mono)]"
               />
             </div>
