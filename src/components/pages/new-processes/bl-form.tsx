@@ -59,13 +59,60 @@ export function BlForm({ handlePosition }: PositionProps) {
 
   async function handleSubmit() {
     try {
-      const response = await fetch(
-        'https://5c71-2804-14c-f284-4388-b0a2-6da9-d3db-ae32.ngrok-free.app/extract_bl',
-      )
-      const result = await response.json()
-      setData1(result) // Atualiza o estado com os dados retornados
+      const dataResponse = {
+        as_agents_carrier: 'CNS INTERTRANS(SHENZHEN) #',
+        bairroouro: 'BRANCO',
+        bl_no: 'SZX23080421',
+        board_the_vessel: '26-Aug-2023',
+        cep: '93415080',
+        cnpj: '01.717.285/0002-20',
+        collect: 'FREIGHT COLLECT',
+        container: 'CGMU4941002',
+        containernosealno: 'N/M',
+        declared_value: '$',
+        este: 'SC-492',
+        exchange_rate: '',
+        free_time: '14 DAYS',
+        freight_charges: 'OF USD 1,144.00 THC BRL 1,100.00',
+        measurement_m3_gross_weight_kgs: '24270.000 KG 26.730 M3',
+        mode: 'CY/CY*',
+        ncm: '8302',
+        novo: 'HAMBURGO/RS',
+        ocean_vessel: 'JONATHAN SWIFT',
+        onward_inland_routingexport_instructionfor_the_merchants_reference_only:
+          'PORT AUTHORITY AT SUCH PORT SHALI CONSTITUTE DUE DELIVER HEREUNDER AND ALL LIABILITY OF THE CARRIER CONNECTION WITH THE GOODS INCLUDING WITHOUT LIMITATION FOR TIME CARREL SHALL NOT 04 SPONSIBLE FOR DELIVERY PRESENTATION OF THE ORIGINAL BILL OF LADING AS BRAZILIAN',
+        packages: '2230',
+        payable_at: 'NAVEGANTES BRAZIL',
+        per: '',
+        place_of_delivery: 'NAVEGANTES BRAZIL',
+        place_of_receiptdate: 'SHANTOU CHINA',
+        place_of_reot_issuedate: 'SHENZHEN /26-Aug-2023',
+        port_and_country_of_originfor_the_merchants_reference_only: '',
+        port_of_discharge: 'NAVEGANTES BRAZIL',
+        port_of_loading: 'SHANTOU, CHINA',
+        prepaid: '',
+        rate: '',
+        received:
+          'by CNS INTERTRANSSHENGHENICO TO his Agent,Indian Carter . Consolidator The goods package(s) hargin stated accurant good order and condition the place of receipt or the port loading herein indicated subject all the the face and back of THE as Liding to the part of place duly endorsed must be sumendered . exchange for goods - delivery',
+        revenue_tom: '',
+        seals: 'R11689555',
+        shipperexporter:
+          'CHINA GOLDEN DIAMOND CO., LTD 16A SHANDONG ROAD,SHINAN DISTRICT CHINA',
+        so_noref_no: 'SWA0383722',
+        stc: '2230',
+        tel55: '51 3939-3845',
+        total_number_of_containers_or_packages_on_words:
+          'SAY TOTAL ONE CONTAINER(S) ONLY',
+        type: '40NOR',
+        volume: '26,730 M3',
+        voyno: 'Oxw3NSIMA',
+        weight: '24270.000 KG',
+        wooden_packagenot: 'APPLICABLE',
+      }
+
+      setData1(dataResponse) // Atualiza o estado com os dados retornados
     } catch (error) {
-      console.error('Erro ao buscar dados:', error)
+      console.error('Erro ao buscar dados:')
     }
   }
 
