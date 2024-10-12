@@ -56,7 +56,9 @@ export function PackListForm({ handlePosition }: PositionProps) {
 
   async function handleSubmit() {
     try {
-      const response = await fetch('http://localhost:5000/extract_kv')
+      const response = await fetch(
+        'https://5c71-2804-14c-f284-4388-b0a2-6da9-d3db-ae32.ngrok-free.app/extract_invoice',
+      )
       const result = await response.json()
       setData1(result) // Atualiza o estado com os dados retornados
     } catch (error) {

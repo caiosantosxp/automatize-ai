@@ -23,14 +23,17 @@ interface ResponseProps {
   ncm?: string
   cnpj?: string
   port_of_loading?: string
-  bill_of_lading_no?: string
+  bl_no?: string
   shipped_on_board?: string
-  place_of_receipt?: string
+  place_of_receiptdate?: string
   container?: string
   port_of_discharge?: string
   freight_payable_at?: string
   number_and_kind_of_packages?: string
   gross_weight?: string
+  payable_at?: string
+  volume?: string
+  weight?: string
 }
 
 interface PositionProps {
@@ -56,7 +59,9 @@ export function BlForm({ handlePosition }: PositionProps) {
 
   async function handleSubmit() {
     try {
-      const response = await fetch('http://localhost:5000/extract_bl')
+      const response = await fetch(
+        'https://5c71-2804-14c-f284-4388-b0a2-6da9-d3db-ae32.ngrok-free.app/extract_bl',
+      )
       const result = await response.json()
       setData1(result) // Atualiza o estado com os dados retornados
     } catch (error) {
@@ -166,9 +171,7 @@ export function BlForm({ handlePosition }: PositionProps) {
                 type="text"
                 id="bl-number"
                 value={data1?.bl_no || ''}
-                onChange={(e) =>
-                  setData1({ ...data1, bill_of_lading_no: e.target.value })
-                }
+                onChange={(e) => setData1({ ...data1, bl_no: e.target.value })}
                 className="font-[family-name:var(--font-geist-mono)]"
               />
             </div>
